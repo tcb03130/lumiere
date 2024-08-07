@@ -1,0 +1,507 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  color: #333;
+  font-family: "맑은 고딕";
+  box-sizing: border-box;
+}
+html,
+body {
+  background-color: #fff;
+  color: #333;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.wrap {
+  width: 100%;
+  /* margin: 0 auto; */
+}
+/* 상단영역 */
+header {
+  width: 1200px;
+  height: 100px;
+  position: relative;
+  display: flex;
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  height: 100px;
+  align-items: center;
+}
+/* 아이콘 */
+
+.ikon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100px;
+}
+
+.ikon .ikon-inner {
+  position: relative;
+  width: 100%;
+  /* justify-content: flex-end; */
+}
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 10px); /* 검색창을 아이콘 아래에 위치시킵니다. */
+  left: 0;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-top: none;
+  display: none;
+}
+
+/* 메뉴 스타일 */
+.menu {
+  position: relative;
+  width: 1200px;
+  z-index: 1;
+  padding-top: 40px;
+}
+
+.navi {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.navi > li {
+  position: relative;
+  list-style: none;
+}
+
+.menu-link {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+}
+
+.menu-link:hover {
+  background-color: #ddd;
+  color: #fff;
+  font-weight: bold;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 50;
+  padding: 8px 12px;
+  width: 150px; /* 서브메뉴 너비 설정 */
+  display: none;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.navi > li:hover .submenu {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.submenu > li {
+  list-style: none;
+}
+
+.submenu > li > a {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 13px;
+  letter-spacing: -0.5px; /* 폰트 간격을 좁힘 */
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+
+.submenu > li > a:hover {
+  background-color: #f2f2f2;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 슬라이드배너 */
+/* 슬라이드배너 */
+.slide {
+  position: relative;
+  width: 1200px;
+  height: 800px;
+  overflow: hidden;
+  margin: 0 auto;
+  padding-top: 30px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.slide-list {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+  list-style-type: none;
+}
+.slide-list img {
+  width: 1200px;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
+.slide-prev,
+.slide-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+.slide-prev {
+  left: 20px;
+}
+
+.slide-next {
+  right: 20px;
+}
+
+.slide-prev img,
+.slide-next img {
+  width: 50px; /* 이미지 크기 조정 */
+  height: 50px;
+}
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  vertical-align: middle; /* 버튼을 세로 중앙 정렬 */
+  margin-top: -20px; /* 필요에 따라 조정 */
+}
+.dots {
+  position: absolute;
+  top: 50%;
+  bottom: 10px;
+  right: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #333;
+}
+/* 메인 */
+
+/* 신상품 */
+
+/* 전체 메인 컨테이너 스타일 */
+main {
+  max-width: 1200px; /* 최대 너비 설정 */
+  margin: 0 auto; /* 가운데 정렬 */
+  padding: 20px; /* 내부 여백 설정 */
+}
+
+/* 메인 내부 컨테이너 스타일 */
+.main-inner {
+  display: flex; /* 내부 요소들을 플렉스 박스로 배치 */
+  flex-wrap: wrap; /* 요소들이 넘칠 경우 줄 바꿈 처리 */
+  gap: 20px; /* 각 요소 사이의 간격 설정 */
+  margin: -100px; /* 간격의 반대 방향으로 마이너스 마진을 적용 */
+}
+
+/* 메인 제목 스타일 */
+.main-title {
+  width: 100%; /* 제목 전체 너비 설정 */
+  text-align: center; /* 가운데 정렬 */
+  margin-top: 50px;
+  margin-bottom: 15px; /* 아래 여백 설정 */
+}
+
+/* 슬라이드 배너와 신상품 사이의 간격을 조정하는 마진 설정 */
+.product + .slide {
+  margin-top: 20px;
+}
+
+/* 각 상품 컨테이너 스타일 */
+.product {
+  width: calc(25% - 20px); /* 상품 전체 너비 설정 (너비가 4분의 1, 간격 포함) */
+  border: 1px solid #ddd; /* 테두리 설정 */
+  border-radius: 8px; /* 둥근 모서리 설정 */
+  overflow: hidden; /* 내부 요소 넘침 방지 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 설정 */
+}
+
+/* 상품 이미지 스타일 */
+.product img {
+  width: 100%; /* 이미지를 컨테이너에 꽉 채우도록 설정 */
+  height: auto; /* 이미지의 높이 자동 조정 */
+  display: block; /* 인라인 요소를 블록 요소로 변환하여 여백 문제 해결 */
+}
+
+/* 상품 정보 컨테이너 스타일 */
+.product-info {
+  padding: 16px; /* 상품 정보 위아래 내부 여백 설정 */
+}
+
+/* 상품 이름 스타일 */
+.product-name {
+  font-size: 18px; /* 상품 이름 폰트 크기 설정 */
+  margin-bottom: 8px; /* 상품 이름 아래 여백 설정 */
+}
+
+/* 상품 가격 스타일 */
+.product-price {
+  font-size: 16px; /* 상품 가격 폰트 크기 설정 */
+}
+
+/* 정상 가격 스타일 */
+.original-price {
+  text-decoration: line-through; /* 줄 긋기 설정 */
+  color: #999; /* 정상 가격 색상 설정 */
+  display: block; /* 블록 요소로 설정하여 줄 바꿈 처리 */
+}
+
+/* 할인 가격 스타일 */
+.discount-price {
+  font-size: 20px; /* 할인 가격 폰트 크기 설정 */
+  color: #f00; /* 할인 가격 색상 설정 */
+  font-weight: bold; /* 할인 가격을 더 강조하기 위해 글꼴 두껍게 설정 */
+}
+
+/* 스타일 코디룩 상품 */
+
+.main-stylist {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stylist-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.product-ad p {
+  position: absolute;
+  width: 600px;
+  height: 50px;
+  color: #fff;
+  background-color: #999;
+  text-align: center;
+  line-height: 50px;
+  /* top: 50px; */
+  /* left: 0px; */
+  /* text-align: center; */
+  font-size: 25px;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  justify-content: space-around;
+}
+
+.stylist-inner {
+  display: flex;
+  padding-top: 130px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.product-ad {
+  position: absolute; /* 절대적 위치 설정 */
+  font-weight: bold;
+  top: 150px;
+  right: 650px;
+}
+
+.product-ad p {
+  transform: rotate(
+    0deg
+  ); /* 텍스트를 가로로 회전된 상태에서 0도로 회전하여 가로로 변경 */
+  white-space: nowrap; /* 텍스트가 한 줄로 표시되도록 설정 */
+}
+
+.stylist-inner li {
+  margin-right: 0px;
+}
+.stylist-inner li:last-child {
+  margin-right: 0;
+}
+.bustylist {
+  position: relative;
+  display: flex;
+  padding-top: 200px;
+  right: -50px;
+  gap: 10px;
+}
+
+.btn {
+  position: absolute;
+  background-color: #000;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  right: 300px; /* 오른쪽으로 20px 이동 */
+  bottom: -10px; /* 아래로 20px 이동 */
+}
+
+/* footer */
+
+/* 기본 스타일링 */
+footer {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 250px;
+  margin-top: 10%;
+  /* margin-bottom: 50px; */
+  padding-top: 5px;
+  padding-bottom: 40px;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  z-index: 1;
+  background-color: #eee;
+}
+.footer-inner {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.customer-service {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+}
+.company-info {
+  position: absolute;
+  top: 47px;
+  left: 210px;
+}
+.customer-service .company-info {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+footer ul {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  justify-content: flex-start;
+  margin-top: 150px;
+}
+footer ul li {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  padding-left: 15px;
+  padding-right: 16px;
+  border-right: 1px solid #000;
+}
+footer ul li:last-child {
+  border: none;
+}
+
+.additional-links {
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  left: 10px;
+}
+
+footer ul li a {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.sns {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  opacity: 0.5;
+}
+.sns a img:hover {
+}
+.sns a {
+  display: inline-block;
+  margin-left: 10px; /* 각 SNS 아이콘 사이의 간격 설정 */
+}
+
+.btlogo {
+  position: absolute;
+  top: 100px; /* 푸터 상단에서 중간으로 위치시키기 위해 top 값을 50%로 설정합니다 */
+  right: 90px; /* 푸터 오른쪽에서 중간으로 위치시키기 위해 right 값을 50%로 설정합니다 */
+  transform: translate(
+    50%,
+    -50%
+  ); /* 요소의 중심을 푸터의 오른쪽 중간으로 이동시킵니다 */
+  opacity: 0.5;
+}
+
+.btlogo a {
+  display: block; /* 링크를 블록 요소로 변경하여 전체 이미지 영역에 링크가 적용되도록 합니다 */
+}
+
+.legal {
+  display: flex;
+  justify-content: center; /* 가운데 정렬 */
+  position: absolute;
+  top: 100px; /* 푸터 상단에서 중간으로 위치시키기 위해 top 값을 50%로 설정합니다 */
+  right: 190px; /* 푸터 오른쪽에서 중간으로 위치시키기 위해 right 값을 50%로 설정합니다 */
+  transform: translate(50%, -50%);
+}
+.copy {
+  display: flex;
+  position: absolute;
+  top: 200px; /* 푸터 상단에서 중간으로 위치시키기 위해 top 값을 50%로 설정합니다 */
+  right: 200px; /* 푸터 오른쪽에서 중간으로 위치시키기 위해 right 값을 50%로 설정합니다 */
+  transform: translate(50%, -50%);
+}
